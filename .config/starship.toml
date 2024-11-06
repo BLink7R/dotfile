@@ -1,0 +1,64 @@
+# ~/.config/starship.toml
+
+format = '''[$username$os](black bg:white)[](white bg:red)[$directory](white bg:red)[](red bg:purple)[$git_branch$git_status](white bg:purple)[](purple bg:cyan)[$jobs](bg:cyan)[](cyan)
+[](8)[$time](black bg:8)$character'''
+
+add_newline=false
+
+[username]
+format = "$user "
+disabled = false
+show_always = true
+
+[os]
+format = "$symbol"
+disabled = false
+
+[os.symbols]
+Windows = "[](blue)"
+Ubuntu = "[](208)"
+
+[directory]
+home_symbol="~"
+read_only=""
+format=" $path  "
+
+[conda]
+format = " $environment $symbol "
+truncation_length = 0
+ignore_base = false
+symbol = ""
+
+[character]
+success_symbol = "[](bright-green bg:8)[](white bg:bright-green)"
+error_symbol = "[](bright-red bg:8)[](white bg:bright-red)"
+
+[git_branch]
+format = " $branch $symbol"
+symbol = ""
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_status]
+format = '$all_status$ahead_behind '
+
+[memory_usage]
+format = "$symbol[${ram}( | ${swap})]($style) "
+threshold = 70
+style = "bold dimmed white"
+disabled = false
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+disabled = true
+
+[time]
+time_format = "%H:%M"
+format = "  $time "
+disabled = false
+
+[jobs]
+format = "$symbol$number"
