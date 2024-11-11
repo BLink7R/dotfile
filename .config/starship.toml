@@ -1,6 +1,6 @@
 # ~/.config/starship.toml
 
-format = '''$username $os [](inverted red)[$directory](white bg:red)[](red bg:purple)[$git_branch$git_status](white bg:purple)[](purple bg:cyan)[$jobs](bg:cyan)[](cyan)
+format = '''$username $os[](inverted red)[$directory](white bg:red)[](red bg:purple)[$git_branch$git_status](white bg:purple)[](purple bg:cyan)[$jobs](bg:cyan)[](cyan)
 [](8)[$time](white bg:8)$character'''
 
 add_newline=false
@@ -15,8 +15,9 @@ format = "$symbol"
 disabled = false
 
 [os.symbols]
-Windows = "[](blue)"
-Ubuntu = "[](208)"
+Windows = "[](blue) "
+Ubuntu = "[](208) "
+Android = "󰀲"
 
 [directory]
 home_symbol="~"
