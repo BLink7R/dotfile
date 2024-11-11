@@ -1,12 +1,12 @@
 # ~/.config/starship.toml
 
-format = '''[$username$os](0 bg:15)[](15 bg:red)[$directory](white bg:red)[](red bg:purple)[$git_branch$git_status](15 bg:purple)[](purple bg:cyan)[$jobs](bg:cyan)[](cyan)
-[](8)[$time](15 bg:8)$character'''
+format = '''$username $os [](inverted red)[$directory](white bg:red)[](red bg:purple)[$git_branch$git_status](white bg:purple)[](purple bg:cyan)[$jobs](bg:cyan)[](cyan)
+[](8)[$time](bg:8)$character'''
 
 add_newline=false
 
 [username]
-format = "$user "
+format = "$user"
 disabled = false
 show_always = true
 
@@ -30,8 +30,8 @@ ignore_base = false
 symbol = ""
 
 [character]
-success_symbol = "[](bright-green bg:8)[](white bg:bright-green)"
-error_symbol = "[](bright-red bg:8)[](white bg:bright-red)"
+success_symbol = "[](bright-green bg:8)[](inverted bright-green)"
+error_symbol = "[](bright-red bg:8)[](inverted bright-red)"
 
 [git_branch]
 format = " $branch $symbol"
