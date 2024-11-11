@@ -1,7 +1,7 @@
 # ~/.config/starship.toml
 
 format = '''$username $os [](inverted red)[$directory](white bg:red)[](red bg:purple)[$git_branch$git_status](white bg:purple)[](purple bg:cyan)[$jobs](bg:cyan)[](cyan)
-[](8)[$time](bg:8)$character'''
+[](8)[$time](white bg:8)$character'''
 
 add_newline=false
 
