@@ -1,2 +1,7 @@
 /*
 !.gitignore
+!.config/fish
+!.config/helix
+!.config/zellij
+!.config/starship.toml
+!.termux
