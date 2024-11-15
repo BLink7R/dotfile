@@ -3,10 +3,9 @@
 "ui.menu.selected" = { fg = "base01", bg = "base04" }
 "ui.popup" = { bg = "base01" }
 "ui.window" = { bg = "base01" }
-"ui.linenr" = { fg = "base03", bg = "base01", modifiers = ["bold"] }
+"ui.linenr" = { fg = "base03", bg = "base01" }
 "ui.linenr.selected" = { fg = "base04", bg = "base01", modifiers = ["bold"] }
 "ui.selection" = { bg = "base02" }
-"comment" = { fg = "base03", modifiers = ["italic", "dimed"] }
 "ui.statusline" = { fg = "base04", bg = "base01" }
 "ui.cursor" = { fg = "base04", modifiers = ["reversed"] }
 "ui.cursor.primary" = { fg = "base05", modifiers = ["reversed"] }
@@ -15,8 +14,9 @@
 "ui.virtual.ruler" = { bg = "base01" }
 
 "ui.text" = "base05"
-"operator" = { fg = "base05", modifiers = ["bold"] }
 "ui.text.focus" = "base05"
+"comment" = { fg = "base03", modifiers = ["italic", "dimed"] }
+"operator" = { fg = "base05", modifiers = ["bold"] }
 "variable" = "base08"
 "constant.numeric" = { fg = "base09", modifiers = ["bold"] }
 "constant" = { fg = "base09", modifiers = ["bold"] }
@@ -56,18 +56,18 @@
 "warning" = "base09"
 "error" = "base08"
 
-"ui.bufferline" = { fg = "base04", bg = "base01" }
-"ui.bufferline.active" = { fg = "base07", bg = "base00" }
+"ui.bufferline" = { fg = "base03", bg = "base01" }
+"ui.bufferline.active" = { fg = "base04", bg = "base00" }
 
 [palette]
 base00 = "#ffffff" # Default Background
 base01 = "#ffffff" # Lighter Background (Used for status bars, line number and folding marks)
 base02 = "#ababab" # Selection Background
-base03 = "#888888" # Comments, Invisibles, Line Highlighting
+base03 = "#555555" # Comments, Invisibles, Line Highlighting
 base04 = "#000000" # Dark Foreground (Used for status bars)
 base05 = "#000000" # Default Foreground, Caret, Delimiters, Operators
 base06 = "#000000" # Light Foreground (Not often used)
-base07 = "#ffffff" # Light Background (Not often used)
+base07 = "#555555" # Light Background (Not often used)
 base08 = "#000000" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
 base09 = "#000000" # Integers, Boolean, Constants, XML Attributes, Markup Link Url
 base0A = "#000000" # Classes, Markup Bold, Search Text Background

@@ -2,3 +2,4 @@ theme = "ink"
 
 [editor]
   true-color = true
+  bufferline = "multiple"
