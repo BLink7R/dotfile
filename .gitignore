@@ -1,5 +1,7 @@
 /*
 !.gitignore
+!.config
+.config/*
 !.config/fish
 !.config/helix
 !.config/zellij
