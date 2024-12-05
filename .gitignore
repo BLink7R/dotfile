@@ -2,8 +2,6 @@
 !.gitignore
 !.config
 .config/*
-!.config/fish
 !.config/helix
-!.config/zellij
 !.config/starship.toml
-!.termux
+!/.config/ps1

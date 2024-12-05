@@ -3,3 +3,6 @@ theme = "ink"
 [editor]
   true-color = true
   bufferline = "multiple"
+
+[editor.soft-wrap]
+  enable = true
