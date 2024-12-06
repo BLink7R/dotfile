@@ -9,7 +9,7 @@
 
 [[language]]
 	name = "python"
-	indent = "{ tab-width = 4, unit = " " }"
+	indent = { tab-width = 4, unit = " " }
 
 [language-server.pylsp.config.pylsp]
 	plugins.ruff.enabled = true
