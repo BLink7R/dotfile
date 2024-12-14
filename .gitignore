@@ -4,6 +4,7 @@
 .config/*
 !.config/fish
 !.config/helix
+!.config/ps1
 !.config/zellij
 !.config/starship.toml
 !.termux
