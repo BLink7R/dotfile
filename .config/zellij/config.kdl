@@ -162,7 +162,7 @@ keybinds clear-defaults=true {
         bind "Ctrl b" { SwitchToMode "tmux"; }
     }
     shared_except "locked" "scroll" "search" {
-        bind "Ctrl s" { SwitchToMode "scroll"; }
+        bind "Ctrl f" { SwitchToMode "scroll"; }
     }
     shared_except "locked" "tab" {
         bind "Ctrl t" { SwitchToMode "tab"; }
