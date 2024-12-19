@@ -1,5 +1,32 @@
 theme = "ink"
 
 [editor]
-  true-color = true
-  bufferline = "multiple"
+true-color = true
+bufferline = "multiple"
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ""
+
+[keys.normal]
+C-s = ":w"
+C-c = ":clipboard-yank"
+C-v = ":clipboard-paste-before"
+"'" = "toggle_comments"
+backspace = "delete_char_backward"
+A-backspace = "delete_word_backward"
+del = "delete_selection_noyank"
+A-del = "delete_selection"
+r = "replace_with_yanked"
+R = "replace"
+"<" = ":buffer-previous"
+">" = ":buffer-next"
+"{" = "unindent"
+"}" = "indent"
+
+[keys.insert]
+C-s = ["normal_mode", ":w"]
+C-c = ":clipboard-yank"
+C-v = ":clipboard-paste-before"
+C-x = "delete_selection"
+A-backspace = "delete_word_backward"
