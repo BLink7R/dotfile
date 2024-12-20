@@ -4,7 +4,7 @@ if status is-interactive
     set Omen z131@192.168.0.101
     set Kso Administrator@10.13.149.128
 
-    set -U fish_color_autosuggestion white --italics
+    set -U fish_color_autosuggestion brblack --italics
     set -U fish_color_cancel -r
     set -U fish_color_command blue #white
     set -U fish_color_comment brgreen --italics
