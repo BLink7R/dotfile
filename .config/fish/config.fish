@@ -22,7 +22,6 @@ if status is-interactive
     set -U fish_color_quote yellow #brblack
     set -U fish_color_redirection cyan
     set -U fish_color_search_match bryellow --background=d5c4a1
-    set -U fish_color_selection white --bold --background=d5c4a1
     set -U fish_color_status red
     set -U fish_color_user brgreen
     set -U fish_color_valid_path --underline
