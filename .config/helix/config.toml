@@ -9,24 +9,25 @@ enable = true
 wrap-indicator = ""
 
 [keys.normal]
-C-s = ":w"
+C-s = ":update"
 C-c = ":clipboard-yank"
 C-v = ":clipboard-paste-before"
-"'" = "toggle_comments"
 backspace = "delete_char_backward"
 A-backspace = "delete_word_backward"
 del = "delete_selection_noyank"
 A-del = "delete_selection"
 r = "replace_with_yanked"
 R = "replace"
-"<" = ":buffer-previous"
-">" = ":buffer-next"
-"{" = "unindent"
-"}" = "indent"
+"_" = ":buffer-close"
+minus = "trim_selections"
+J = "page_cursor_half_down"
+A-j = "page_down"
+K = "page_cursor_half_up"
+A-k = "page_up"
 
 [keys.insert]
-C-s = ["normal_mode", ":w"]
+C-s = "normal_mode"
 C-c = ":clipboard-yank"
 C-v = ":clipboard-paste-before"
-C-x = "delete_selection"
 A-backspace = "delete_word_backward"
+ret = ["commit_undo_checkpoint", "insert_newline"]
