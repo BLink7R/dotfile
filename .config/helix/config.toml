@@ -21,9 +21,7 @@ R = "replace"
 "_" = ":buffer-close"
 minus = "trim_selections"
 J = "page_cursor_half_down"
-A-j = "page_down"
 K = "page_cursor_half_up"
-A-k = "page_up"
 
 [keys.insert]
 C-s = "normal_mode"
