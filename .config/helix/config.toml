@@ -24,8 +24,5 @@ J = "page_cursor_half_down"
 K = "page_cursor_half_up"
 
 [keys.insert]
-C-s = "normal_mode"
-C-c = ":clipboard-yank"
-C-v = ":clipboard-paste-before"
-A-backspace = "delete_word_backward"
+C-s = ["normal_mode", "save_selection"]
 ret = ["commit_undo_checkpoint", "insert_newline"]
