@@ -3,6 +3,7 @@ theme = "ink"
 [editor]
 true-color = true
 bufferline = "multiple"
+insert-final-newline = false
 
 [editor.soft-wrap]
 enable = true
@@ -24,5 +25,5 @@ J = "page_cursor_half_down"
 K = "page_cursor_half_up"
 
 [keys.insert]
-C-s = ["normal_mode", "save_selection"]
+C-s = "normal_mode"
 ret = ["commit_undo_checkpoint", "insert_newline"]
