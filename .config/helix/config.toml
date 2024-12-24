@@ -26,6 +26,10 @@ minus = "trim_selections"
 J = "page_cursor_half_down"
 K = "page_cursor_half_up"
 
+[keys.normal.g]
+p = "jump_backward"
+n = "jump_forward"
+
 [keys.insert]
 C-s = "normal_mode"
 ret = ["commit_undo_checkpoint", "insert_newline"]
