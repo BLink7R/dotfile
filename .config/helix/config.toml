@@ -9,6 +9,9 @@ insert-final-newline = false
 enable = true
 wrap-indicator = ""
 
+[editor.smart-tab]
+enable = false
+
 [keys.normal]
 C-s = ":update"
 C-c = ":clipboard-yank"
