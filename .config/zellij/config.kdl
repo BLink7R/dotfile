@@ -274,7 +274,7 @@ load_plugins {
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-// theme "dracula"
+theme "iceberg-light"
  
 // Choose the base input mode of zellij.
 // Default: normal
@@ -375,7 +375,7 @@ default_shell "fish"
  
 // Path to the default editor to use to edit pane scrollbuffer
 // Default: $EDITOR or $VISUAL
-// scrollback_editor "/usr/bin/vim"
+// scrollback_editor "hx"
  
 // A fixed name to always give the Zellij session.
 // Consider also setting `attach_to_session true,`
@@ -388,7 +388,7 @@ default_shell "fish"
 // if it is already running or creates it otherwise.
 // Default: false
 // 
-// attach_to_session true
+attach_to_session true
  
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
