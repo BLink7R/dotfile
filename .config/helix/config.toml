@@ -34,5 +34,5 @@ p = "jump_backward"
 n = "jump_forward"
 
 [keys.insert]
-C-s = "normal_mode"
+C-s = [":update", "normal_mode"]
 ret = ["commit_undo_checkpoint", "insert_newline"]
