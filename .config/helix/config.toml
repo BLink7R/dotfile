@@ -33,6 +33,10 @@ K = "page_cursor_half_up"
 p = "jump_backward"
 n = "jump_forward"
 
+[keys.normal.m]
+s = "select_textobject_around"
+a = "surround_add"
+
 [keys.insert]
 C-s = [":update", "normal_mode"]
 ret = ["commit_undo_checkpoint", "insert_newline"]
