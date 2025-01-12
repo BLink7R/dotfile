@@ -55,8 +55,8 @@ p = "jump_backward"
 n = "jump_forward"
 
 [keys.normal.m]
-a = "surround_add"
 s = "select_textobject_around"
+a = "surround_add"
 
 [keys.select.m]
 a = "surround_add"
