@@ -1,4 +1,5 @@
 "ui.linenr.selected" = { modifiers = ["reversed"] }
+"ui.menu.selected" = { modifiers = ["reversed"] }
 "ui.selection" = { bg = "gray0" }
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursor.match" = { underline = { style = "line" } }
@@ -60,8 +61,6 @@
 "string" = { fg = "green" }
 
 "tag" = { fg = "cyan" }
-
-"tabstop" = { fg = "gray" }
 
 "type" = { fg = "blue", modifiers = ["bold"], underline = { style = "line" } }
 
