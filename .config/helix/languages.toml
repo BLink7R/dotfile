@@ -1,17 +1,17 @@
 [[language]]
-	name = "cpp"
-	language-servers = ["clangd"]
-	indent = { tab-width = 2, unit = "t" }
+name = "cpp"
+language-servers = ["clangd"]
+indent = { tab-width = 2, unit = "t" }
 
 [language-server.clangd]
-	name = "clangd"
-	args = [ "--header-insertion=never" ]
+name = "clangd"
+args = [ "--header-insertion=never" ]
 
 [[language]]
-	name = "python"
-	indent = { tab-width = 4, unit = " " }
+name = "python"
+indent = { tab-width = 4, unit = " " }
 
 [language-server.pylsp.config.pylsp]
-	plugins.ruff.enabled = true
-	plugins.black.enabled = true
-	
+plugins.ruff.enabled = true
+plugins.black.enabled = true
+
