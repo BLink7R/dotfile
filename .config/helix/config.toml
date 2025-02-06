@@ -29,9 +29,38 @@ minus = "trim_selections"
 J = "page_cursor_half_down"
 K = "page_cursor_half_up"
 
+[keys.select]
+C-s = ":update"
+C-c = ":clipboard-yank"
+C-v = ":clipboard-paste-before"
+backspace = "delete_char_backward"
+A-backspace = "delete_word_backward"
+del = "delete_selection_noyank"
+A-del = "delete_selection"
+r = "replace_with_yanked"
+R = "replace"
+"(" = ":buffer-previous"
+")" = ":buffer-next"
+"_" = ":buffer-close"
+minus = "trim_selections"
+J = "page_cursor_half_down"
+K = "page_cursor_half_up"
+
 [keys.normal.g]
 p = "jump_backward"
 n = "jump_forward"
+
+[keys.select.g]
+p = "jump_backward"
+n = "jump_forward"
+
+[keys.normal.m]
+a = "surround_add"
+s = "select_textobject_around"
+
+[keys.select.m]
+a = "surround_add"
+s = "select_textobject_around"
 
 [keys.insert]
 C-s = [":update", "normal_mode"]
