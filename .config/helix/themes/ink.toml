@@ -1,79 +1,69 @@
-"ui.background" = { bg = "base00" }
-"ui.menu" = { fg = "base05", bg = "base01" }
-"ui.menu.selected" = { fg = "base01", bg = "base04" }
-"ui.popup" = { bg = "base01" }
-"ui.window" = { bg = "base01" }
-"ui.linenr" = { fg = "base03", bg = "base01" }
-"ui.linenr.selected" = { fg = "base04", bg = "base01", modifiers = ["bold"] }
-"ui.selection" = { bg = "base02" }
-"ui.statusline" = { fg = "base04", bg = "base01" }
-"ui.cursor" = { fg = "base04", modifiers = ["reversed"] }
-"ui.cursor.primary" = { fg = "base05", modifiers = ["reversed"] }
-"ui.virtual.whitespace" = "base03"
-"ui.virtual.jump-label" = { fg = "blue", modifiers = ["bold"], underline = { style = "line" } }
-"ui.virtual.ruler" = { bg = "base01" }
+"ui.linenr.selected" = { modifiers = ["reversed"] }
+"ui.selection" = { bg = "gray0" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursor.match" = { underline = { style = "line" } }
+"ui.cursor.primary" = { modifiers = ["reversed"] }
 
-"ui.text" = "base05"
-"ui.text.focus" = "base05"
-"comment" = { fg = "base03", modifiers = ["italic", "dimed"] }
-"operator" = { fg = "base05", modifiers = ["bold"] }
-"variable" = "base08"
-"constant.numeric" = { fg = "base09", modifiers = ["bold"] }
-"constant" = { fg = "base09", modifiers = ["bold"] }
-"attribute" = "base09"
-"type" = { fg = "base0A", modifiers = ["bold"], underline = { style = "line" } }
-"ui.cursor.match" = { fg = "base0A", underline = { style = "line" } }
-"string"  = { fg = "base0B", modifiers = ["italic"] }
-"variable.other.member" = "base0B"
-"constant.character.escape" = "base0C"
-"function" = "base0D"
-"constructor" = { fg = "base0D", modifiers = ["bold"], underline = { style = "line" } }
-"special" = "base0D"
-"keyword" = { fg = "base0E", modifiers = ["bold"] }
-"label" = "base0E"
-"namespace" = "base0E"
-"ui.help" = { fg = "base06", bg = "base01" }
+"ui.text.focus" = { underline = { style = "line" } }
+"ui.virtual.jump-label" = { fg = "magenta", modifiers = ["bold"] }
+"ui.bufferline.active" = { modifiers = ["reversed"] }
 
-"markup.heading" = "base0D"
-"markup.list" = "base08"
-"markup.bold" = { fg = "base0A", modifiers = ["bold"] }
-"markup.italic" = { fg = "base0E", modifiers = ["italic"] }
-"markup.strikethrough" = { modifiers = ["crossed_out"] }
-"markup.link.url" = { fg = "base09", underline = { style = "line" } }
-"markup.link.text" = "base08"
-"markup.quote" = "base0C"
-"markup.raw" = "base0B"
+"annotation" = { fg = "gray", modifiers = ["italic"] }
 
-"diff.plus" = "base0B"
-"diff.delta" = "base09"
-"diff.minus" = "base08"
+"attribute" = { fg = "cyan", modifiers = ["italic"] }
+
+"comment" = { fg = "gray", modifiers = ["italic"] }
+
+"constant" = { fg = "magenta" }
+
+"constructor" = { fg = "magenta" }
+
+"definition" = { underline = { color = "cyan" } }
 
 "diagnostic" = { modifiers = ["crossed_out"] }
-"ui.gutter" = { bg = "base01" }
-"info" = "base0D"
-"hint" = "base03"
-"debug" = "base03"
-"warning" = "base09"
-"error" = "base08"
 
-"ui.bufferline" = { fg = "base03", bg = "base01" }
-"ui.bufferline.active" = { fg = "base04", bg = "base00" }
+"variable" = {  }
+
+"error" = { fg = "red" }
+"hint" = { fg = "blue" }
+"info" = { fg = "cyan" }
+"warning" = { fg = "yellow" }
+
+"diff.delta" = { fg = "yellow" }
+"diff.minus" = { fg = "red" }
+"diff.plus" = { fg = "green" }
+
+"function" = { fg = "green" }
+
+"keyword" = { fg = "red" }
+
+"label" = { fg = "red" }
+
+"markup.bold" = { modifiers = ["bold"] }
+"markup.heading" = "cyan"
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.text" = "red"
+"markup.link.url" = { fg = "blue", modifiers = ["underlined"] }
+"markup.raw" = "red"
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+
+"module" = { fg = "cyan" }
+
+"namespace" = {  }
+
+"operator" = { fg = "magenta" }
+
+"punctuation" = { fg = "orange1" }
+
+"special" = { fg = "magenta" }
+
+"string" = { fg = "green" }
+
+"tag" = { fg = "cyan" }
+
+"tabstop" = { fg = "gray" }
+
+"type" = { fg = "blue", modifiers = ["bold"], underline = { style = "line" } }
 
 [palette]
-base00 = "#ffffff" # Default Background
-base01 = "#ffffff" # Lighter Background (Used for status bars, line number and folding marks)
-base02 = "#ababab" # Selection Background
-base03 = "#555555" # Comments, Invisibles, Line Highlighting
-base04 = "#000000" # Dark Foreground (Used for status bars)
-base05 = "#000000" # Default Foreground, Caret, Delimiters, Operators
-base06 = "#000000" # Light Foreground (Not often used)
-base07 = "#555555" # Light Background (Not often used)
-base08 = "#000000" # Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
-base09 = "#000000" # Integers, Boolean, Constants, XML Attributes, Markup Link Url
-base0A = "#000000" # Classes, Markup Bold, Search Text Background
-base0B = "#000000" # Strings, Inherited Class, Markup Code, Diff Inserted
-base0C = "#000000" # Support, Regular Expressions, Escape Characters, Markup Quotes
-base0D = "#000000" # Functions, Methods, Attribute IDs, Headings
-base0E = "#000000" # Keywords, Storage, Selector, Markup Italic, Diff Changed
-base0F = "#000000" # Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
-
+gray0 = "#ababab"
