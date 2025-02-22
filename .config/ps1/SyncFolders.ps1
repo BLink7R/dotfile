@@ -32,7 +32,7 @@ function SyncFolders([string]$FldrL, [string]$FldrR)
         {
             $LeftPath = $Folder.InputObject.FullName
             $RightPath = $Folder.InputObject.FullName.Replace($FldrL, $FldrR)
-          
+
             if (Test-Path $LeftPath)
             {
                 if (Test-Path $RightPath)
@@ -64,7 +64,7 @@ function SyncFolders([string]$FldrL, [string]$FldrR)
                 {
                     $CopyRight = $true
                 }
-           }
+            }
         }
         if ($Folder.SideIndicator -eq "<=" -or $CopyLeft) {
             $SourcePath = $Folder.InputObject.FullName
