@@ -1,10 +1,8 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     source (starship init fish --print-full-init | psub)
-    set Omen z131@192.168.0.101
-    set Kso Administrator@10.13.149.128
 
-    set -U fish_color_autosuggestion brblack --italics
+    set -U fish_color_autosuggestion white --italics
     set -U fish_color_cancel -r
     set -U fish_color_command blue #white
     set -U fish_color_comment brgreen --italics
@@ -19,7 +17,7 @@ if status is-interactive
     set -U fish_color_normal normal
     set -U fish_color_operator blue #green
     set -U fish_color_param 665c54
-    set -U fish_color_quote yellow #brblack
+    set -U fish_color_quote yellow --bold #brblack
     set -U fish_color_redirection cyan
     set -U fish_color_search_match bryellow --background=d5c4a1
     set -U fish_color_status red
