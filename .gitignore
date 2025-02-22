@@ -7,4 +7,5 @@
 !.config/ps1
 !.config/zellij
 !.config/starship.toml
+!.config/nvim
 !.termux
