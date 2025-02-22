@@ -24,23 +24,26 @@ local c = {
 ink.set_up = function()
   vim.cmd("highlight clear")
   if vim.fn.exists("syntax_on") then
-      vim.cmd("syntax reset")
+    vim.cmd("syntax reset")
   end
   vim.o.termguicolors = false
+  vim.o.background = "dark"
   vim.g.colors_name = "ink"
 
   hl(0, "Visual",                  { ctermbg = c.bg_mid })
-  hl(0, "NonText",                 { ctermfg = c.red, ctermbg = c.bg })
-  hl(0, "LineNr",                  { ctermfg = c.bg_mid, ctermbg = c.bg, cterm = { bold = true } })
-  hl(0, "StatusLine",              { ctermfg = c.fg, ctermbg = c.bg })
+  hl(0, "WhiteSpace",              { ctermfg = c.bg_mid, ctermbg = c.bg })
+  hl(0, "LineNr",                  { ctermfg = c.fg, ctermbg = c.bg })
+  hl(0, "CursorLineNr",            { ctermfg = c.fg, ctermbg = c.bg, cterm = { reverse = true }})
+  hl(0, "StatusLine",              { ctermfg = c.fg })
+  hl(0, "StatusLineNc",            { ctermfg = c.fg })
 
   hl(0, "SnacksIndentScope",       { ctermfg = c.red, ctermbg = c.bg })
 
   hl(0, "NoiceCmdlineIcon",        { ctermfg = c.fg, ctermbg = c.bg })
   hl(0, "NoiceScrollbarThumb",     { ctermfg = c.fg, ctermbg = c.bg })
   hl(0, "NoiceScrollbar",          { ctermfg = c.fg, ctermbg = c.bg_mid })
-  hl(0, "NoiceCmdlinePopupBorder", { ctermfg = c.red, ctermbg = c.bg })    
-end     
+  hl(0, "NoiceCmdlinePopupBorder", { ctermfg = c.fg, ctermbg = c.bg })
+end
 
 ink.colors = c
 
