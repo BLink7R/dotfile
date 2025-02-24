@@ -62,10 +62,6 @@ s = "select_textobject_around"
 a = "surround_add"
 s = "select_textobject_around"
 
-[keys.select.m]
-a = "surround_add"
-s = "select_textobject_around"
-
 [keys.insert]
 C-s = [":update", "normal_mode"]
 ret = ["commit_undo_checkpoint", "insert_newline"]
