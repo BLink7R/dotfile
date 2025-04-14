@@ -81,14 +81,14 @@ Set-PSReadLineKeyHandler -Key F7 `
 
 # This is an example of a macro that you might use to execute a command.
 # This will add the command to history.
-Set-PSReadLineKeyHandler -Key Ctrl+b `
-                         -BriefDescription BuildCurrentDirectory `
-                         -LongDescription "Build the current directory" `
-                         -ScriptBlock {
-    [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-    [Microsoft.PowerShell.PSConsoleReadLine]::Insert("msbuild")
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-}
+# Set-PSReadLineKeyHandler -Key Ctrl+b `
+#                          -BriefDescription BuildCurrentDirectory `
+#                          -LongDescription "Build the current directory" `
+#                          -ScriptBlock {
+#     [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
+#     [Microsoft.PowerShell.PSConsoleReadLine]::Insert("msbuild")
+#     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+# }
 
 # In Emacs mode - Tab acts like in bash, but the Windows style completion
 # is still useful sometimes, so bind some keys so we can do both

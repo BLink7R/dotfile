@@ -21,3 +21,7 @@ Set-PSReadLineOption -Colors @{
 }
 
 Invoke-Expression (&starship init powershell)
+
+$env:OHOS_NDK_HOME = "C:/Program Files/Huawei/DevEco Studio/sdk/default/openharmony"
+$env:PATH = "$env:OHOS_NDK_HOME/native/build-tools/cmake/bin;$env:OHOS_NDK_HOME/toolchains;$env:PATH"
+# $env:PATH = "$env:OHOS_NDK_HOME\toolchains;$env:PATH"

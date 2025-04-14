@@ -1,6 +1,6 @@
 "ui.linenr.selected" = { modifiers = ["reversed"] }
 "ui.menu.selected" = { modifiers = ["reversed"] }
-"ui.selection" = { bg = "gray0" }
+"ui.selection" = { bg = "gray" }
 "ui.cursor" = { modifiers = ["reversed"] }
 "ui.cursor.match" = { underline = { style = "line" } }
 "ui.cursor.primary" = { modifiers = ["reversed"] }
@@ -9,11 +9,11 @@
 "ui.virtual.jump-label" = { fg = "magenta", modifiers = ["bold"] }
 "ui.bufferline.active" = { modifiers = ["reversed"] }
 
-"annotation" = { fg = "gray", modifiers = ["italic"] }
+"annotation" = { fg = "light-gray", modifiers = ["italic"] }
 
 "attribute" = { fg = "cyan", modifiers = ["italic"] }
 
-"comment" = { fg = "gray", modifiers = ["italic"] }
+"comment" = { fg = "light-gray", modifiers = ["italic"] }
 
 "constant" = { fg = "magenta" }
 
@@ -63,6 +63,3 @@
 "tag" = { fg = "cyan" }
 
 "type" = { fg = "blue", modifiers = ["bold"], underline = { style = "line" } }
-
-[palette]
-gray0 = "#ababab"
