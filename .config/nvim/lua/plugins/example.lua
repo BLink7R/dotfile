@@ -56,7 +56,20 @@ if true then return {
       keys[#keys + 1] = { "K", false }
       keys[#keys + 1] = { "<C-K>", "<cmd>lua vim.lsp.buf.hover()<cr>" }
     end,
-  }
+  },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview" },
+      { "<leader>gD", "<cmd>DiffviewClose<cr>", desc = "Close Diffview" },
+    },
+    config = function()
+      -- 可选：自定义配置
+      require("diffview").setup({})
+    end,
+  },
 } end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
