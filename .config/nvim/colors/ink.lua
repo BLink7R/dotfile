@@ -31,6 +31,11 @@ ink.set_up = function()
   vim.o.termguicolors = false
   vim.o.background = "dark"
   vim.g.colors_name = "ink"
+  
+  hl(0, "Pmenu",                   { ctermfg = c.fg, ctermbg = c.bg, cterm = {} })
+  hl(0, "PmenuSel",                { ctermfg = c.fg, ctermbg = c.bg_mid, cterm = { underline = true, bold = true } })
+  hl(0, "PmenuThumb",              { ctermbg = c.fg_mid })
+  hl(0, "PmenuSbar",               { ctermbg = c.bg_mid })
 
   hl(0, "Visual",                  { ctermbg = c.bg_mid })
   hl(0, "NonText",                 { ctermfg = c.fg_mid, ctermbg = c.bg })
@@ -76,6 +81,7 @@ ink.lualine = {
   visual = {
     a = { fg = c.white, bg = c.blue, gui = 'bold' },
     b = { fg = c.white, bg = c.cyan },
+    c = { fg = c.fg, bg = c.bg },
   },
   inactive = {
     a = { gui = 'reverse' },
@@ -90,6 +96,7 @@ ink.lualine = {
   replace = {
     a = { fg = c.white, bg = c.red, gui = 'bold' },
     b = { fg = c.white, bg = c.purple },
+    c = { fg = c.fg, bg = c.bg },
   },
   normal = {
     a = { fg = c.white, bg = c.blue, gui = 'bold' },
