@@ -75,6 +75,16 @@ if true then return {
     event = "VeryLazy"
   },
   {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    -- build = "make tiktoken",
+    opts = {
+      -- See Configuration section for options
+    },
+  },
+  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = {
