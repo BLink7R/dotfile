@@ -10,10 +10,3 @@ vim.g.autoformat = false
 vim.o.selection = "exclusive"
 vim.o.virtualedit = vim.o.virtualedit .. ",onemore"
 vim.o.guicursor = "n-v-c:ver25,i-ci-ve:ver25,r-cr:hor20,o:hor50"
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("normal! l")
-    end,
-})

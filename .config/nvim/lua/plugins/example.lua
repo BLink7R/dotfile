@@ -2,6 +2,19 @@
 -- stylua: ignore
 if true then return {
   {
+    "echasnovski/mini.ai",
+    enabled = false,
+  },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      triggers = {
+        -- disable trigger when enter visual
+        { "<auto>", mode = "nso" }
+      }
+    }
+  },
+  {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = function(_, opts)
