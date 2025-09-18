@@ -30,7 +30,7 @@ local function kak_word_motion(motion)
 	end
 end
 
-for i, motion in pairs({'b', 'B', 'w', 'W', 'e', 'E'}) do
+for i, motion in pairs({ 'b', 'B', 'w', 'W', 'e', 'E' }) do
 	vim.keymap.set('n', motion, function()
 		kak_word_motion(motion)
 	end, { noremap = true, silent = true })
@@ -52,7 +52,7 @@ local function kak_char_motion(motion)
 	end
 end
 
-for i, motion in pairs({'h', 'j', 'k', 'l'}) do
+for i, motion in pairs({ 'h', 'j', 'k', 'l' }) do
 	vim.keymap.set('n', motion, function()
 		kak_char_motion(motion)
 	end, { noremap = true, silent = true })
@@ -60,6 +60,37 @@ for i, motion in pairs({'h', 'j', 'k', 'l'}) do
 		kak_char_motion(motion)
 	end, { noremap = true, silent = true })
 end
+
+local function kak_goto_motion(cmd)
+	local mode = vim.api.nvim_get_mode().mode
+	if kak_normal and (mode == "v") then
+		vim.api.nvim_feedkeys(ESC .. cmd, "n", true)
+	else
+		vim.api.nvim_feedkeys(cmd, "n", true)
+	end
+end
+
+local function kak_normal_visual_goto(key, cmd, desc)
+	vim.keymap.set('n', key, function()
+		kak_goto_motion(cmd)
+	end, { noremap = true, silent = true, desc = desc })
+	vim.keymap.set('v', key, function()
+		kak_goto_motion(cmd)
+	end, { noremap = true, silent = true, desc = desc })
+end
+
+kak_normal_visual_goto('gl', '$', "move to line end")
+kak_normal_visual_goto('gh', '^', "move to line start")
+kak_normal_visual_goto('gf', 'gf', "Go to file under cursor")
+kak_normal_visual_goto('gi', 'gi', "Go to last insert")
+kak_normal_visual_goto('gp',
+	ESC .. vim.api.nvim_replace_termcodes('<C-o>', true, false, true),
+	"Prev jumplist position")
+kak_normal_visual_goto('gn',
+	ESC .. vim.api.nvim_replace_termcodes('<C-i>', true, false, true),
+	"Next jumplist position")
+vim.keymap.set('n', 'gv', 'gv', { noremap = true, silent = true, desc = "Last visual selection" })
+vim.keymap.set('v', 'gv', 'gv', { noremap = true, silent = true, desc = "Last visual selection" })
 
 vim.keymap.set('n', 'n', 'gn', { noremap = true, silent = true })
 vim.keymap.set('n', 'N', 'gN', { noremap = true, silent = true })
@@ -109,10 +140,10 @@ vim.keymap.set('v', '<Esc>', function()
 end, { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("ModeChanged", {
-    pattern = {"v:n*", "v:i*"},
-    callback = function()
+	pattern = { "v:n*", "v:i*" },
+	callback = function()
 		kak_normal = true
-    end,
+	end,
 })
 
 -- make cursor act like gui editors
@@ -138,13 +169,9 @@ vim.keymap.set('v', 'a', function()
 	vim.api.nvim_feedkeys("o" .. ESC .. "i", "n", true)
 end, { noremap = true, silent = true, nowait = true })
 
-vim.keymap.set('n', 'gl', '$', { noremap = true, silent = true })
-vim.keymap.set('n', 'gs', '^', { noremap = true, silent = true })
 vim.keymap.set('n', 'U', ':redo<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', 'J', '<PageDown>', { noremap = true, silent = true })
 vim.keymap.set('n', 'K', '<PageUp>', { noremap = true, silent = true })
-vim.keymap.set('v', 'gl', '$', { noremap = true, silent = true })
-vim.keymap.set('v', 'gs', '^', { noremap = true, silent = true })
 vim.keymap.set('v', 'U', ':redo<cr>', { noremap = true, silent = true })
 vim.keymap.set('v', 'J', '<PageDown>', { noremap = true, silent = true })
 vim.keymap.set('v', 'K', '<PageUp>', { noremap = true, silent = true })
