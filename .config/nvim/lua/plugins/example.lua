@@ -3,7 +3,16 @@ local show_hidden_file = false
 
 return {
   {
-    "echasnovski/mini.ai",
+    "amitds1997/remote-nvim.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- For standard functions
+      "MunifTanjim/nui.nvim",          -- To build the plugin UI
+      "nvim-telescope/telescope.nvim", -- For picking b/w different remote methods
+    },
+    config = true,
+  },
+  {
+    "nvim-mini/mini.ai",
     enabled = false,
   },
   {
