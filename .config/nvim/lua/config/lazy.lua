@@ -35,11 +35,6 @@ require("lazy").setup({
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
-  -- git = {
-  --   timeout = 300,
-  --   url_format = "git@github.com:%s.git",
-  --   clone_timeout = 300,
-  -- },
   performance = {
     rtp = {
       -- disable some rtp plugins
