@@ -257,16 +257,6 @@ vim.keymap.set({ 'n', 'x' }, "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Nex
 vim.keymap.set({ 'n', 'x' }, "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
 vim.keymap.set({ 'n', 'x' }, "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
--- floating terminal
-vim.keymap.set({ 'n', 'x' }, "<leader>fT", function() Snacks.terminal() end, { desc = "Terminal (cwd)" })
-vim.keymap.set({ 'n', 'x' }, "<leader>ft", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
-	{ desc = "Terminal (Root Dir)" })
-vim.keymap.set({ 'n', 'x' }, "<c-/>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end,
-	{ desc = "Terminal (Root Dir)" })
-
--- Terminal Mappings
-vim.keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-
 -- custom
 vim.keymap.set({ 'n', 'x' }, 'U', ':redo<cr>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'J', '<PageDown>', { noremap = true, silent = true })
