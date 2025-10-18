@@ -2,7 +2,7 @@
 
 -- register a keymap for both normal and visual mode
 function helix_key(key, desc, func)
-  return { key, func, desc = desc, mode = { 'n', 'x' } }
+  return { key, func, desc = desc, mode = { 'n', 'x' }, nowait = true }
 end
 
 local show_i = false
@@ -76,6 +76,14 @@ function snack_keys()
     {"<c-_>", "<cmd>close<cr>", desc = "which_key_ignore", mode = "t"},
     -- ui
     helix_key("<leader>uC", "Colorschemes", function() Snacks.picker.colorschemes() end),
+    -- lsp
+    helix_key("gd", "Goto Definition", function() Snacks.picker.lsp_definitions() end),
+    helix_key("gD", "Goto Declaration", function() Snacks.picker.lsp_declarations() end),
+    helix_key("gr", "References", function() Snacks.picker.lsp_references() end),
+    helix_key("gI", "Goto Implementation", function() Snacks.picker.lsp_implementations() end),
+    helix_key("gy", "Goto T[y]pe Definition", function() Snacks.picker.lsp_type_definitions() end),
+    helix_key("<leader>ss", "LSP Symbols", function() Snacks.picker.lsp_symbols() end),
+    helix_key("<leader>sS", "LSP Workspace Symbols", function() Snacks.picker.lsp_workspace_symbols() end),
   }
 
   -- lazygit
@@ -99,7 +107,6 @@ return {
       triggers = {
         { "<leader>", mode = "nixsotc" },
         { "g",        mode = "nixsotc" },
-        { "gc",       mode = "nixsotc" },
         { "[",        mode = "nixsotc" },
         { "]",        mode = "nixsotc" },
         { "z",        mode = "nixsotc" },

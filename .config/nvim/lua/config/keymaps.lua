@@ -4,6 +4,8 @@
 local kak_normal = true
 
 ESC = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+BS = vim.api.nvim_replace_termcodes("<BS>", true, false, true)
+DEL = vim.api.nvim_replace_termcodes("<Del>", true, false, true)
 
 local function batch_action(action)
 	if vim.o.lazyredraw == false then
@@ -15,19 +17,52 @@ local function batch_action(action)
 	action()
 end
 
+-- modechagne
+local function kak_toggle_visual()
+	local mode = vim.api.nvim_get_mode().mode
+	if mode == "v" then
+		if kak_normal then
+			kak_normal = false -- start extend selection
+		else
+			kak_normal = true
+		end
+	elseif mode == "V" or mode == "n" then
+		vim.api.nvim_feedkeys("v", "n", true)
+		kak_normal = false -- start extend selection
+	end
+end
+
+vim.keymap.set({ 'n', 'x' }, 'v', kak_toggle_visual, { noremap = true, silent = true })
+
+vim.keymap.set('v', '<Esc>', function()
+	if kak_normal then
+		vim.api.nvim_feedkeys(ESC, "n", true)
+	else
+		kak_normal = true
+	end
+end, { noremap = true, silent = true })
+
+vim.api.nvim_create_autocmd("ModeChanged", {
+	pattern = { "v:n*", "v:i*" },
+	callback = function()
+		kak_normal = true
+	end,
+})
+
 -- helix like word motions
 local function kak_word_motion(motion)
-	local count = vim.v.count > 0 and vim.v.count or 1
+    local count = vim.v.count > 0 and vim.v.count or 1
+	print(kak_normal)
 	if kak_normal then
 		batch_action(function()
 			vim.api.nvim_feedkeys(ESC, "n", true)
 			if count > 1 then
-				vim.cmd('normal! ' .. count - 1 .. motion)
+				vim.api.nvim_feedkeys(count - 1 .. motion, "n", true)
 			end
 			vim.api.nvim_feedkeys("v" .. motion, "n", true)
 		end)
 	else
-		vim.cmd('normal! ' .. count .. motion)
+		vim.api.nvim_feedkeys(count .. motion, "n", true)
 	end
 end
 
@@ -44,10 +79,10 @@ local function kak_char_motion(motion)
 	if kak_normal and (mode == "v") then
 		batch_action(function()
 			vim.api.nvim_feedkeys(ESC, "n", true)
-			vim.cmd('normal! ' .. count .. motion)
+			vim.api.nvim_feedkeys(count .. motion, "n", true)
 		end)
-	else
-		vim.cmd('normal! ' .. count .. motion)
+    else
+		vim.api.nvim_feedkeys(count .. motion, "n", true)
 	end
 end
 
@@ -102,38 +137,16 @@ vim.keymap.set('x', 'N', function()
 		vim.api.nvim_feedkeys("N", "n", true)
 	end
 end, { noremap = true, silent = true })
-
--- modechagne
-local function kak_toggle_visual()
-	local mode = vim.api.nvim_get_mode().mode
-	if mode == "v" then
+for i, motion in pairs({ 'f', 'F' }) do
+	vim.keymap.set({ 'n', 'x' }, motion, function()
+		local count = vim.v.count > 0 and vim.v.count or 1
 		if kak_normal then
-			kak_normal = false -- start extend selection
+			vim.api.nvim_feedkeys(ESC .. "v" .. count .. motion, "n", true)
 		else
-			kak_normal = true
+			vim.api.nvim_feedkeys(count .. motion, "n", true)
 		end
-	elseif mode == "V" or mode == "n" then
-		vim.api.nvim_feedkeys("v", "n", true)
-		kak_normal = false -- start extend selection
-	end
+	end, { noremap = true, silent = true })
 end
-
-vim.keymap.set({ 'n', 'x' }, 'v', kak_toggle_visual, { noremap = true, silent = true })
-
-vim.keymap.set('v', '<Esc>', function()
-	if kak_normal then
-		vim.api.nvim_feedkeys(ESC, "n", true)
-	else
-		kak_normal = true
-	end
-end, { noremap = true, silent = true })
-
-vim.api.nvim_create_autocmd("ModeChanged", {
-	pattern = { "v:n*", "v:i*" },
-	callback = function()
-		kak_normal = true
-	end,
-})
 
 -- make cursor act like gui editors
 vim.keymap.set("i", "<Esc>", function()
@@ -148,6 +161,11 @@ end, { noremap = true, silent = true })
 
 vim.keymap.set('n', 'd', '"_x', { noremap = true, silent = true })
 vim.keymap.set('n', 'c', '"_xi', { noremap = true, silent = true })
+vim.keymap.set("n", "<BS>", function()
+	vim.api.nvim_feedkeys('i' .. BS, "n", true)
+	vim.api.nvim_feedkeys(ESC, "m", true) -- use map
+end, { noremap = true, silent = true })
+vim.keymap.set('x', '<BS>', '"_x', { noremap = true, silent = true })
 vim.keymap.set('n', 'y', 'yy', { noremap = true, silent = true })
 vim.keymap.set('n', 'p', 'Pl', { noremap = true, silent = true })
 vim.keymap.set('n', 'P', '"+Pl', { noremap = true, silent = true })
@@ -179,8 +197,15 @@ vim.keymap.set({ 'n', 'x' }, "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 vim.keymap.set({ 'n', 'x' }, "<leader>L", function() LazyVim.news.changelog() end, { desc = "LazyVim Changelog" })
 
 -- commenting
-vim.keymap.set({ 'n', 'x' }, "gco", "o<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Below" })
-vim.keymap.set({ 'n', 'x' }, "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Comment Above" })
+vim.keymap.del({ 'n' }, "gcc")
+vim.keymap.set({ 'x' }, "gc", function()
+    require('vim._comment').operator()
+	vim.api.nvim_feedkeys("g@gv", "n", true)
+end, { desc = "Toggle Line Comment" })
+vim.keymap.set({ 'n' }, "gc", function()
+    require('vim._comment').operator()
+	vim.api.nvim_feedkeys("g@_", "n", true)
+end, { desc = "Toggle Line Comment" })
 
 -- new file
 vim.keymap.set({ 'n', 'x' }, "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
@@ -258,6 +283,10 @@ vim.keymap.set({ 'n', 'x' }, "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Cl
 vim.keymap.set({ 'n', 'x' }, "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- custom
-vim.keymap.set({ 'n', 'x' }, 'U', ':redo<cr>', { noremap = true, silent = true })
+vim.keymap.set({ 'n' }, 'U', '<cmd>redo<cr>', { noremap = true, silent = true })
+vim.keymap.set({ 'x' }, 'U', ESC .. '<cmd>redo<cr>', { noremap = true, silent = true })
+vim.keymap.set({ 'x' }, 'u', ESC .. '<cmd>undo<cr>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'J', '<PageDown>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'K', '<PageUp>', { noremap = true, silent = true })
+vim.keymap.set({ 'n' }, '<C-s>', '<cmd>update<cr>', { noremap = true, silent = true })
+vim.keymap.set({ 'i', 'x' }, '<C-s>', ESC .. '<cmd>update<cr>gv', { noremap = true, silent = true })
