@@ -68,12 +68,16 @@ function snack_keys()
     helix_key("<leader>sq", "Quickfix List", function() Snacks.picker.qflist() end),
     helix_key("<leader>su", "Undotree", function() Snacks.picker.undo() end),
     --terminal
-    helix_key("<leader>fT", "Terminal (cwd)", function() Snacks.terminal() end),
-    helix_key("<leader>ft", "Terminal (Root Dir)", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end),
-    helix_key("<c-/>", "Terminal (Root Dir)", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end),
-    helix_key("<c-_>", "which_key_ignore", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end),
-    {"<c-/>", "<cmd>close<cr>", desc = "Hide Terminal", mode = "t"},
-    {"<c-_>", "<cmd>close<cr>", desc = "which_key_ignore", mode = "t"},
+    helix_key("<leader>fT", "Terminal (cwd)",
+      function() Snacks.terminal(nil, { env = { NVIM_HOST = vim.v.servername } }) end),
+    helix_key("<leader>ft", "Terminal (Root Dir)",
+      function() Snacks.terminal(nil, { cwd = LazyVim.root(), env = { NVIM_HOST = vim.v.servername } }) end),
+    helix_key("<c-/>", "Terminal (Root Dir)",
+    function() Snacks.terminal(nil, { cwd = LazyVim.root(), env = { NVIM_HOST = vim.v.servername } }) end),
+    helix_key("<c-_>", "which_key_ignore",
+      function() Snacks.terminal(nil, { cwd = LazyVim.root(), env = { NVIM_HOST = vim.v.servername } }) end),
+    { "<c-/>", "<cmd>close<cr>", desc = "Hide Terminal",    mode = "t" },
+    { "<c-_>", "<cmd>close<cr>", desc = "which_key_ignore", mode = "t" },
     -- ui
     helix_key("<leader>uC", "Colorschemes", function() Snacks.picker.colorschemes() end),
     -- lsp

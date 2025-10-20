@@ -6,6 +6,14 @@ function conda {
     conda @args  
 }
 
+function vi {
+    if ($env:NVIM_HOST) {
+        nvim --server $env:NVIM_HOST --remote $args
+    } else {
+        nvim $args
+    }
+}
+
 function ohosdev {
     $env:OHOS_NDK_HOME = "D:/ohos_sdk_windows/default/openharmony"
     $env:PATH = "$env:OHOS_NDK_HOME/native/build-tools/cmake/bin;$env:OHOS_NDK_HOME/toolchains;$env:PATH"
