@@ -9,16 +9,16 @@ function conda {
 function ohosdev {
     $env:OHOS_NDK_HOME = "D:/ohos_sdk_windows/default/openharmony"
     $env:PATH = "$env:OHOS_NDK_HOME/native/build-tools/cmake/bin;$env:OHOS_NDK_HOME/toolchains;$env:PATH"
-    $env:PATH = "$env:OHOS_NDK_HOME\toolchains;$env:PATH"
-    hdc fport tcp:10603 tcp:2020
-    hdc fport tcp:10605 tcp:2021
-    hdc fport tcp:10608 tcp:2022
-    hdc fport tcp:10611 tcp:2023
-    hdc fport tcp:10615 tcp:2024
-    hdc fport ls
+    # $env:PATH = "$env:OHOS_NDK_HOME\toolchains;$env:PATH"
+    # hdc fport tcp:10603 tcp:2020
+    # hdc fport tcp:10605 tcp:2021
+    # hdc fport tcp:10608 tcp:2022
+    # hdc fport tcp:10611 tcp:2023
+    # hdc fport tcp:10615 tcp:2024
+    # hdc fport ls
 }
 
-& "$home\Documents\WindowsPowerShell\SamplePSReadLineProfile.ps1"
+& "$home/.config/ps1/SamplePSReadLineProfile.ps1"
 
 Set-PSReadLineOption -Colors @{
     Command          = "DarkBlue"

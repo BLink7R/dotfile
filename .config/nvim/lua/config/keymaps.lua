@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 -- helix like word motions
 local function kak_word_motion(motion)
     local count = vim.v.count > 0 and vim.v.count or 1
-	print(kak_normal)
 	if kak_normal then
 		batch_action(function()
 			vim.api.nvim_feedkeys(ESC, "n", true)
@@ -289,4 +288,5 @@ vim.keymap.set({ 'x' }, 'u', ESC .. '<cmd>undo<cr>', { noremap = true, silent = 
 vim.keymap.set({ 'n', 'x' }, 'J', '<PageDown>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'x' }, 'K', '<PageUp>', { noremap = true, silent = true })
 vim.keymap.set({ 'n' }, '<C-s>', '<cmd>update<cr>', { noremap = true, silent = true })
-vim.keymap.set({ 'i', 'x' }, '<C-s>', ESC .. '<cmd>update<cr>gv', { noremap = true, silent = true })
+vim.keymap.set({ 'x' }, '<C-s>', ESC .. '<cmd>update<cr>gv', { noremap = true, silent = true })
+vim.keymap.set({ 'i' }, '<C-s>', ESC .. '<cmd>update<cr>', { noremap = true, silent = true })
