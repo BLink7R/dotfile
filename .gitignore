@@ -8,4 +8,5 @@
 !.config/zellij
 !.config/starship.toml
 !.config/nvim
+!.config/opencode
 !.termux
