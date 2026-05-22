@@ -1,4 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 git:
   pagers:
+    - externalDiffCommand: "~/.config/lazygit/page.bat"
     - pager: delta --dark --paging=never
