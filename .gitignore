@@ -9,4 +9,5 @@
 !.config/starship.toml
 !.config/nvim
 !.config/opencode
+!.config/lazygit
 !.termux
