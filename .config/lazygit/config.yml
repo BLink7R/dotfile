@@ -3,3 +3,5 @@ git:
   pagers:
     - externalDiffCommand: "~/.config/lazygit/page.bat"
     - pager: delta --dark --paging=never
+os:
+  editPreset: "helix"
